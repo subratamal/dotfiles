@@ -1,0 +1,66 @@
+#!/bin/bash
+
+yga() {
+	if [ -z "$1" ]
+	then
+		echo "Provide module name to add smarty!"
+		exit 1
+	else
+		echo "Yarn installing module(s) globally..."
+		yarn global add $@
+		exit 0
+	fi
+}
+
+ygr() {
+	if [ -z "$1" ]
+	then
+		echo "Provide module name to remove smarty!"
+		exit 1
+	else
+		echo "Yarn removing module(s) from global dependency..."
+		yarn global remove $@
+		exit 0
+	fi
+}
+
+yla() {
+	if [ -z "$1" ]
+	then
+		echo "Provide module name to add smarty!"
+		exit 1
+	else
+		echo "Yarn adding module(s) as local dependency..."
+		yarn add $@
+		exit 0
+	fi
+}
+
+ylad() {
+	if [ -z "$1" ]
+	then
+		echo "Provide module name to add smarty!"
+		exit 1
+	else
+		echo "Yarn adding module as local dev dependency..."
+		yarn add $1 --dev
+		exit 0
+	fi
+}
+
+ylr() {
+	if [ -z "$1" ]
+	then
+		echo "Provide module name to remove smarty!"
+		exit 1
+	else
+		echo "Yarn removing module from local dependency..."
+		yarn remove $1
+		exit 0
+	fi
+}
+
+yod() {
+	echo "Listing all outdated modules..."
+	yarn outdated
+}
